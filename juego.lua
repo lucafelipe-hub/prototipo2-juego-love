@@ -9,7 +9,7 @@ function Juego:enter()
     self.objetivoPuntos = 5
     self.estadoJuego = "jugando" -- Puede ser "jugando", "ganado", "perdido"
 
-    -- Cargar imágenes y sonidos
+    -- Cargar imagenes y sonidos
     self.imagenAvion = love.graphics.newImage("avion.png")
     self.imagenEnemigo = love.graphics.newImage("enemigo.png")
     self.sonidoCoin = love.audio.newSource("moneda.mp3", "static")
@@ -25,13 +25,13 @@ function Juego:update(dt)
     if love.keyboard.isDown("down") or love.keyboard.isDown("s") then self.jugador.y = self.jugador.y + (self.jugador.velocidad * dt) end
     if love.keyboard.isDown("up") or love.keyboard.isDown("w") then self.jugador.y = self.jugador.y - (self.jugador.velocidad * dt) end
 
-    -- Límites de la pantalla
+    -- Limites de la pantalla
     if self.jugador.x < 0 then self.jugador.x = 0 end
     if self.jugador.x > 800 - self.jugador.ancho then self.jugador.x = 800 - self.jugador.ancho end
     if self.jugador.y < 0 then self.jugador.y = 0 end
     if self.jugador.y > 600 - self.jugador.alto then self.jugador.y = 600 - self.jugador.alto end
 
-    -- Persecución del enemigo
+    -- Persecucion del enemigo
     if self.enemigo.x < self.jugador.x then self.enemigo.x = self.enemigo.x + (self.enemigo.velocidad * dt)
     elseif self.enemigo.x > self.jugador.x then self.enemigo.x = self.enemigo.x - (self.enemigo.velocidad * dt) end
 
